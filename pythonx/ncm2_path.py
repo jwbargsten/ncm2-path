@@ -35,6 +35,8 @@ class BufPath(Ncm2Source):
         matches = []
 
         joined_dir = path.join(base_dir, dr.strip('/'))
+        if not path.exists(joined_dir):
+            return
         logger.debug('searching dir: %s', joined_dir)
         try:
             names = listdir(joined_dir)
@@ -92,6 +94,8 @@ class CwdPath(Ncm2Source):
         matches = []
 
         joined_dir = path.join(base_dir, dr.strip('/'))
+        if not path.exists(joined_dir):
+            return
         logger.debug('searching dir: %s', joined_dir)
         try:
             names = listdir(joined_dir)
@@ -156,6 +160,8 @@ class RootPath(Ncm2Source):
         matches = []
 
         joined_dir = path.join(base_dir, dr)
+        if not path.exists(joined_dir):
+            return
         logger.debug('searching dir: %s', joined_dir)
         try:
             names = listdir(joined_dir)
